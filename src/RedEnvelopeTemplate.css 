@@ -1,0 +1,56 @@
+.red-envelope-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.red-envelope-form {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.red-envelope-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.red-envelope-form .input-group {
+  margin: 10px 0;
+}
+
+.red-envelope-form input {
+  width: 100%;
+  padding: 5px;
+}
+
+.red-envelope-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.red-envelope-list {
+  margin-top: 20px;
+}
+
+.red-envelope-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.red-envelope-list li {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.red-envelope-list p {
+  margin: 5px 0;
+}
