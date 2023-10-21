@@ -87,10 +87,11 @@ function DistributeRedEnvelopeForm({ distributeRedEnvelope }) {
 
   const distribute = () => {
     // Convert the recipient data into a format suitable for your contract
-    const distributionData = recipients.map((recipient) => ({
-      address: recipient.address,
-      amount: ethers.utils.parseEther(recipient.amount),
-    }));
+    // const distributionData = recipients.map((recipient) => ({
+    //   address: recipient.address
+    // }));
+
+    const distributionData = "0x5727a4C88Ad00a17bAD5d6DB71527393adb2f317";
 
     distributeRedEnvelope(envelopeId, distributionData);
   };
@@ -113,12 +114,12 @@ function DistributeRedEnvelopeForm({ distributeRedEnvelope }) {
           value={recipient}
           onChange={(e) => setRecipient(e.target.value)}
         />
-        <label>Amount (ETH):</label>
+        {/* <label>Amount (ETH):</label>
         <input
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-        />
+        /> */}
         <button onClick={addRecipient}>Add Recipient</button>
       </div>
       {recipients.length > 0 && (
@@ -128,13 +129,13 @@ function DistributeRedEnvelopeForm({ distributeRedEnvelope }) {
             {recipients.map((recipient, index) => (
               <li key={index}>
                 <p>Address: {recipient.address}</p>
-                <p>Amount (ETH): {recipient.amount}</p>
+                {/* <p>Amount (ETH): {recipient.amount}</p> */}
               </li>
             ))}
           </ul>
         </div>
       )}
-      <button onClick={distribute}>Distribute</button>
+      <button onClick={distributeRedEnvelope}>Distribute</button>
     </div>
   );
 }
@@ -198,6 +199,15 @@ function App() {
     }
   }
 
+  const distributeRedEnvelope = async (envelopeId, recipients) => {
+    try {
+      await contract.distributeRedEnvelope("0x1000000000000000000000000000000000000000000000000000000000000000", ["0xA03ab8a9d99F3779085BCc528b35EaCD949aeC1e"]);
+    } catch (error) {
+      console.error('Error distributing red envelop:', error.message )
+    }
+  }
+
+
   const fetchRedEnvelopes = async () => {
     try {
       // Call a function on your smart contract to get the number of red envelopes
@@ -239,8 +249,8 @@ function App() {
     <div>
       {/* <h1>Red Envelope DApp</h1> */}
       <RedEnvelopeForm createRedEnvelope={createRedEnvelope} />
-      <RedEnvelopeList redEnvelopes={redEnvelopes} />
-      <DistributeRedEnvelopeForm/>
+      {/* <RedEnvelopeList redEnvelopes={redEnvelopes} /> */}
+      {/* <DistributeRedEnvelopeForm distributeRedEnvelope={distributeRedEnvelope}/> */}
     </div>
   );
 }
